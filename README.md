@@ -43,11 +43,14 @@ bash init.sh
 # 2. Install dependencies
 npm install
 
-# 3. Set up environment
+# 3. Need to set pre-commit to run when pushing to git
+git config core.hooksPath .githooks
+
+# 4. Set up environment
 cp .env.local.example .env.local
 # Edit .env.local with your Supabase credentials
 
-# 4. Start the dev server
+# 5. Start the dev server
 npm run dev
 ```
 

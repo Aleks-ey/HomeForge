@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     default: "HomeForge",
     template: "%s | HomeForge",
   },
-  description: "Website for HomeForge LLC. General Contractor services for residential and commercial projects.",
+  description:
+    "Website for HomeForge LLC. General Contractor services for residential and commercial projects.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
   ),

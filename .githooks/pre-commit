@@ -16,6 +16,6 @@ npm run lint
 
 # Format check
 echo "  → Prettier..."
-npm run format:check
+npm run format
 
 echo "✅ All checks passed."
