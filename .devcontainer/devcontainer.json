@@ -1,5 +1,5 @@
 {
-  "name": "Next.js Dev Container",
+  "name": "Next.js HomeForge Dev Container",
   "build": {
     "context": "..",
     "dockerfile": "Dockerfile"

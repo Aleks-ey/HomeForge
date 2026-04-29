@@ -35,6 +35,9 @@ coverage/
 .DS_Store
 Thumbs.db
 
+# Contact form local data (dev only — not for production)
+data/
+
 # Misc
 npm-debug.log*
 yarn-debug.log*

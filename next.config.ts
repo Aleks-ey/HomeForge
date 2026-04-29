@@ -12,9 +12,7 @@ const nextConfig = {
       // },
     ],
   },
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
 } satisfies NextConfig;
 
 export default nextConfig;

@@ -25,7 +25,9 @@ Website for HomeForge LLC. General Contractor services for residential and comme
    ```bash
    bash init.sh
    ```
-4. Open the folder in VS Code — when prompted, click **"Reopen in Container"**
+4. Open the folder in VS Code —
+   If prompted: click **"Reopen in Container"**
+   If not prompted: Cmd+Shft+P > Dev Containers: Rebuild and Reopen in Container
 5. The container will install dependencies and create `.env.local` automatically
 6. Fill in your Supabase credentials in `.env.local`
 7. Run `npm run dev`
@@ -55,6 +57,46 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Deploying to Vercel
+
+### 1. Push all code to GitHub first
+
+All source files must be committed and pushed before Vercel can build them:
+
+```bash
+git add .
+git commit -m "add HomeForge site"
+git push
+```
+
+### 2. Import the repo on Vercel
+
+Go to [vercel.com/new](https://vercel.com/new), import your GitHub repo, and use these settings:
+
+| Setting | Value |
+|---|---|
+| Framework | Next.js (auto-detected) |
+| Root Directory | `.` (repo root) |
+| Build Command | `next build` |
+| Install Command | `npm install` |
+
+### 3. Set environment variables
+
+In the Vercel project dashboard → Settings → Environment Variables, add:
+
+| Variable | Description | Required |
+|---|---|---|
+| `ADMIN_PASSWORD` | Password to access `/hf-admin` | Yes |
+| `NEXT_PUBLIC_APP_URL` | Your production URL, e.g. `https://yoursite.vercel.app` | Yes |
+
+### 4. Deploy
+
+Click **Deploy**. After the first deployment, redeploy anytime by pushing to your main branch.
+
+> **Note on contact form storage:** The contact form stores submissions in `/tmp` on Vercel, which is ephemeral (resets on cold starts and doesn't persist across function instances). For a production site, replace the filesystem storage in `src/app/(public)/contact/actions.ts` with a proper database — Supabase (already a dependency) or a [Vercel Marketplace](https://vercel.com/marketplace) integration.
+
+---
 
 ## Supabase Setup
 
