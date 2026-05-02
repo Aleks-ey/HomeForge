@@ -74,21 +74,21 @@ git push
 
 Go to [vercel.com/new](https://vercel.com/new), import your GitHub repo, and use these settings:
 
-| Setting | Value |
-|---|---|
-| Framework | Next.js (auto-detected) |
-| Root Directory | `.` (repo root) |
-| Build Command | `next build` |
-| Install Command | `npm install` |
+| Setting         | Value                   |
+| --------------- | ----------------------- |
+| Framework       | Next.js (auto-detected) |
+| Root Directory  | `.` (repo root)         |
+| Build Command   | `next build`            |
+| Install Command | `npm install`           |
 
 ### 3. Set environment variables
 
 In the Vercel project dashboard → Settings → Environment Variables, add:
 
-| Variable | Description | Required |
-|---|---|---|
-| `ADMIN_PASSWORD` | Password to access `/hf-admin` | Yes |
-| `NEXT_PUBLIC_APP_URL` | Your production URL, e.g. `https://yoursite.vercel.app` | Yes |
+| Variable              | Description                                             | Required |
+| --------------------- | ------------------------------------------------------- | -------- |
+| `ADMIN_PASSWORD`      | Password to access `/hf-admin`                          | Yes      |
+| `NEXT_PUBLIC_APP_URL` | Your production URL, e.g. `https://yoursite.vercel.app` | Yes      |
 
 ### 4. Deploy
 

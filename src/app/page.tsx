@@ -16,32 +16,36 @@ export default function HomePage() {
       <main>
         {/* Hero */}
         <section className="bg-[var(--color-primary)] text-[var(--color-primary-foreground)]">
-          <div className="max-w-6xl mx-auto px-6 py-28 md:py-36">
-            <p className="text-orange-400 text-sm font-semibold uppercase tracking-widest mb-4">
-              Licensed General Contractor
+          <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+            <p className="mb-4 text-sm font-semibold tracking-widest text-orange-400 uppercase">
+              Licensed General Contractor · Colorado
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6 max-w-2xl">
+            <h1 className="mb-6 max-w-2xl text-4xl leading-tight font-bold tracking-tight md:text-6xl">
               Building What Matters.
             </h1>
-            <p className="text-lg md:text-xl opacity-75 mb-10 max-w-xl leading-relaxed">
-              Residential remodeling and commercial renovation done right —
-              on time, on budget, and built to last.
+            <p className="mb-4 max-w-xl text-lg leading-relaxed opacity-75 md:text-xl">
+              From custom homes and new business build-outs to ADUs, decks,
+              patios, and verandas — HomeForge handles every phase of
+              construction across Colorado.
+            </p>
+            <p className="mb-10 text-sm opacity-60">
+              Get in touch for a free estimate.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-orange-500 hover:bg-orange-600 text-white"
+                  "bg-orange-500 text-white hover:bg-orange-600"
                 )}
               >
-                Start Your Project
+                Request a Free Estimate
               </Link>
               <Link
                 href="/about"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-white/30 text-white hover:bg-white/10 hover:text-white"
+                  "border-[var(--color-primary-foreground)]/30 text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-foreground)]/10 hover:text-[var(--color-primary-foreground)]"
                 )}
               >
                 Learn About Us
@@ -51,40 +55,50 @@ export default function HomePage() {
         </section>
 
         {/* Services */}
-        <section className="py-20 bg-[var(--color-background)]">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
+        <section className="bg-[var(--color-background)] py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="mb-4 text-center text-3xl font-bold tracking-tight">
               What We Build
             </h2>
-            <p className="text-center text-[var(--color-muted-foreground)] mb-12 max-w-xl mx-auto">
-              From kitchen renovations to full commercial build-outs, HomeForge
-              handles every phase of construction.
+            <p className="mx-auto mb-12 max-w-xl text-center text-[var(--color-muted-foreground)]">
+              From ground-up custom homes to outdoor living spaces, HomeForge
+              handles every phase of construction across Colorado.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  icon: "🏠",
-                  title: "Residential Remodeling",
-                  desc: "Kitchens, bathrooms, additions, and full-home renovations tailored to your vision and lifestyle.",
+                  title: "Custom Homes",
+                  desc: "Ground-up custom home builds designed to your specifications, managed from permit to final walkthrough.",
                 },
                 {
-                  icon: "🏢",
-                  title: "Commercial Renovation",
-                  desc: "Office fit-outs, retail spaces, and commercial build-outs with minimal disruption to your business.",
+                  title: "New Business Build-Outs",
+                  desc: "Helping new businesses open their doors with office fit-outs, retail spaces, and commercial renovations.",
                 },
                 {
-                  icon: "🏗️",
-                  title: "New Construction",
-                  desc: "Ground-up builds for residential and commercial clients, managed from permit to final walkthrough.",
+                  title: "Home Additions & ADUs",
+                  desc: "Expand your living space with room additions, accessory dwelling units, and in-law suites.",
+                },
+                {
+                  title: "Decks & Patios",
+                  desc: "Custom decks and patios built to complement your home and stand up to Colorado's four seasons.",
+                },
+                {
+                  title: "Verandas & Covered Outdoor Living",
+                  desc: "Covered verandas and pergolas that turn your backyard into a year-round outdoor living space.",
+                },
+                {
+                  title: "Remodeling & Renovation",
+                  desc: "Kitchens, bathrooms, basements, and full-home renovations tailored to your vision and lifestyle.",
                 },
               ].map((service) => (
                 <div
                   key={service.title}
-                  className="border border-[var(--color-border)] rounded-xl p-6 hover:border-orange-300 transition-colors"
+                  className="rounded-xl border border-[var(--color-border)] p-6 transition-colors hover:border-orange-300"
                 >
-                  <div className="text-3xl mb-4">{service.icon}</div>
-                  <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
-                  <p className="text-sm text-[var(--color-muted-foreground)] leading-relaxed">
+                  <h3 className="mb-2 text-lg font-semibold">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[var(--color-muted-foreground)]">
                     {service.desc}
                   </p>
                 </div>
@@ -94,74 +108,53 @@ export default function HomePage() {
         </section>
 
         {/* Why HomeForge */}
-        <section className="py-20 bg-[var(--color-muted)]">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="bg-[var(--color-muted)] py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-bold tracking-tight mb-4">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight">
                   Why Homeowners & Businesses Choose HomeForge
                 </h2>
-                <p className="text-[var(--color-muted-foreground)] leading-relaxed mb-6">
+                <p className="mb-6 leading-relaxed text-[var(--color-muted-foreground)]">
                   We believe great construction starts with clear communication.
                   Every project gets a dedicated point of contact, transparent
                   timelines, and no surprise invoices.
                 </p>
                 <ul className="space-y-3 text-sm">
                   {[
-                    "Licensed, bonded, and fully insured",
+                    "Licensed, bonded, and fully insured in Colorado",
                     "Detailed written estimates before any work begins",
-                    "Weekly progress updates throughout every project",
+                    "Progress updates throughout every project",
                     "Clean job sites and respectful crews",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="text-orange-500 mt-0.5">✓</span>
+                      <span className="mt-0.5 text-orange-500">✓</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { stat: "15+", label: "Years of Experience" },
-                  { stat: "200+", label: "Projects Completed" },
-                  { stat: "100%", label: "Licensed & Insured" },
-                  { stat: "5★", label: "Average Client Rating" },
-                ].map(({ stat, label }) => (
-                  <div
-                    key={label}
-                    className="bg-[var(--color-background)] rounded-xl p-6 text-center border border-[var(--color-border)]"
-                  >
-                    <div className="text-3xl font-bold text-orange-500 mb-1">
-                      {stat}
-                    </div>
-                    <div className="text-xs text-[var(--color-muted-foreground)] font-medium">
-                      {label}
-                    </div>
-                  </div>
-                ))}
+              <div className="flex flex-col items-start gap-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-8">
+                <div>
+                  <h3 className="mb-2 text-xl font-bold tracking-tight">
+                    Ready to Start Your Project?
+                  </h3>
+                  <p className="leading-relaxed text-[var(--color-muted-foreground)]">
+                    Get in touch for a free estimate. We respond within one
+                    business day.
+                  </p>
+                </div>
+                <Link
+                  href="/contact"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "bg-orange-500 text-white hover:bg-orange-600"
+                  )}
+                >
+                  Request a Free Estimate
+                </Link>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* CTA Banner */}
-        <section className="py-16 bg-orange-500">
-          <div className="max-w-6xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-white/80 mb-8 text-lg max-w-lg mx-auto">
-              Get in touch for a free estimate. We respond within one business day.
-            </p>
-            <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "bg-white text-orange-600 hover:bg-white/90 font-semibold"
-              )}
-            >
-              Request a Free Estimate
-            </Link>
           </div>
         </section>
       </main>

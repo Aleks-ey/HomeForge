@@ -40,9 +40,9 @@ export default function AdminPage() {
   if (!state.authenticated) {
     return (
       <div className="w-full max-w-sm">
-        <div className="bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl p-8 shadow-sm">
-          <div className="text-center mb-8">
-            <div className="text-2xl font-bold tracking-tight mb-1">
+        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-8 shadow-sm">
+          <div className="mb-8 text-center">
+            <div className="mb-1 text-2xl font-bold tracking-tight">
               Home<span className="text-orange-500">Forge</span>
             </div>
             <p className="text-sm text-[var(--color-muted-foreground)]">
@@ -51,7 +51,7 @@ export default function AdminPage() {
           </div>
 
           {state.error && (
-            <div className="bg-red-50 border border-red-200 rounded-md px-4 py-3 text-sm text-red-700 mb-4">
+            <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
               {state.error}
             </div>
           )}
@@ -86,7 +86,7 @@ export default function AdminPage() {
           <h1 className="text-2xl font-bold tracking-tight">
             Contact Submissions
           </h1>
-          <p className="text-sm text-[var(--color-muted-foreground)] mt-1">
+          <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">
             {submissions.length} submission{submissions.length !== 1 ? "s" : ""}
           </p>
         </div>
@@ -96,25 +96,30 @@ export default function AdminPage() {
       </div>
 
       {submissions.length === 0 ? (
-        <div className="bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl p-12 text-center text-[var(--color-muted-foreground)]">
+        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-12 text-center text-[var(--color-muted-foreground)]">
           No submissions yet.
         </div>
       ) : (
-        <div className="bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-background)]">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="border-b border-[var(--color-border)] bg-[var(--color-muted)]">
                 <tr>
-                  {["Date", "Name", "Email", "Phone", "Project Type", "Message"].map(
-                    (col) => (
-                      <th
-                        key={col}
-                        className="text-left px-4 py-3 font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider text-xs whitespace-nowrap"
-                      >
-                        {col}
-                      </th>
-                    )
-                  )}
+                  {[
+                    "Date",
+                    "Name",
+                    "Email",
+                    "Phone",
+                    "Project Type",
+                    "Message",
+                  ].map((col) => (
+                    <th
+                      key={col}
+                      className="px-4 py-3 text-left text-xs font-semibold tracking-wider whitespace-nowrap text-[var(--color-muted-foreground)] uppercase"
+                    >
+                      {col}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
@@ -133,10 +138,10 @@ export default function AdminPage() {
                     <td className="px-4 py-3 font-medium whitespace-nowrap">
                       {s.name}
                     </td>
-                    <td className="px-4 py-3 text-[var(--color-muted-foreground)] whitespace-nowrap">
+                    <td className="px-4 py-3 whitespace-nowrap text-[var(--color-muted-foreground)]">
                       {s.email}
                     </td>
-                    <td className="px-4 py-3 text-[var(--color-muted-foreground)] whitespace-nowrap">
+                    <td className="px-4 py-3 whitespace-nowrap text-[var(--color-muted-foreground)]">
                       {s.phone || "—"}
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">
@@ -144,7 +149,7 @@ export default function AdminPage() {
                         {formatProjectType(s.projectType)}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-[var(--color-muted-foreground)] max-w-xs">
+                    <td className="max-w-xs px-4 py-3 text-[var(--color-muted-foreground)]">
                       <span title={s.message}>
                         {s.message.length > 60
                           ? s.message.slice(0, 60) + "…"

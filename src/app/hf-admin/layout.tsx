@@ -11,7 +11,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[var(--color-muted)] flex items-center justify-center p-6">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--color-muted)] p-6">
       {children}
     </div>
   );

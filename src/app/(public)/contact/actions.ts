@@ -2,7 +2,11 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ContactSubmission, ProjectType, SubmissionsStore } from "@/types/contact";
+import type {
+  ContactSubmission,
+  ProjectType,
+  SubmissionsStore,
+} from "@/types/contact";
 
 const DATA_FILE = process.env.VERCEL
   ? path.join("/tmp", "contact-submissions.json")
@@ -35,7 +39,8 @@ export async function submitContact(
   const name = (formData.get("name") as string | null)?.trim() ?? "";
   const email = (formData.get("email") as string | null)?.trim() ?? "";
   const phone = (formData.get("phone") as string | null)?.trim() ?? "";
-  const projectType = (formData.get("projectType") as ProjectType | null) ?? null;
+  const projectType =
+    (formData.get("projectType") as ProjectType | null) ?? null;
   const message = (formData.get("message") as string | null)?.trim() ?? "";
 
   if (!name || !email || !projectType || !message) {

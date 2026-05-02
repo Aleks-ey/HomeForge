@@ -24,51 +24,51 @@ export default function ContactPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-[var(--color-primary)] text-[var(--color-primary-foreground)] py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-widest mb-3">
+      <section className="bg-[var(--color-primary)] py-20 text-[var(--color-primary-foreground)]">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-orange-400 uppercase">
             Get In Touch
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             Contact HomeForge
           </h1>
-          <p className="text-lg opacity-75 max-w-xl leading-relaxed">
-            Tell us about your project and we&apos;ll get back to you within one
-            business day with a free estimate.
+          <p className="max-w-xl text-lg leading-relaxed opacity-75">
+            Tell us about your project and we&apos;ll get back to you as soon as
+            possible.
           </p>
         </div>
       </section>
 
       {/* Form */}
-      <section className="py-20 bg-[var(--color-background)]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="bg-[var(--color-background)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* Contact info */}
             <div>
-              <h2 className="text-xl font-semibold mb-6">
+              <h2 className="mb-6 text-xl font-semibold">
                 Contact Information
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-muted-foreground)]">
                 <div>
-                  <p className="font-medium text-[var(--color-foreground)] mb-1">
+                  <p className="mb-1 font-medium text-[var(--color-foreground)]">
                     Phone
                   </p>
-                  <p>(555) 000-0000</p>
+                  <p>(303)946-6523</p>
                 </div>
                 <div>
-                  <p className="font-medium text-[var(--color-foreground)] mb-1">
+                  <p className="mb-1 font-medium text-[var(--color-foreground)]">
                     Email
                   </p>
-                  <p>info@homeforge.com</p>
+                  <p>info.homeforge@gmail.com</p>
                 </div>
                 <div>
-                  <p className="font-medium text-[var(--color-foreground)] mb-1">
+                  <p className="mb-1 font-medium text-[var(--color-foreground)]">
                     Hours
                   </p>
                   <p>Mon–Fri, 7am – 6pm</p>
                 </div>
                 <div>
-                  <p className="font-medium text-[var(--color-foreground)] mb-1">
+                  <p className="mb-1 font-medium text-[var(--color-foreground)]">
                     Service Area
                   </p>
                   <p>Residential &amp; commercial projects in the region</p>
@@ -79,25 +79,25 @@ export default function ContactPage() {
             {/* Form */}
             <div>
               {state.success ? (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-                  <div className="text-4xl mb-4">✅</div>
-                  <h3 className="font-semibold text-lg mb-2">
+                <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
+                  <div className="mb-4 text-4xl">✅</div>
+                  <h3 className="mb-2 text-lg font-semibold">
                     Thanks, {state.submittedName}!
                   </h3>
                   <p className="text-sm text-[var(--color-muted-foreground)]">
-                    We&apos;ve received your message and will be in touch within
-                    one business day.
+                    We&apos;ve received your message and will be in touch as
+                    soon as possible.
                   </p>
                 </div>
               ) : (
                 <form action={formAction} className="space-y-5">
                   {state.error && (
-                    <div className="bg-red-50 border border-red-200 rounded-md px-4 py-3 text-sm text-red-700">
+                    <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                       {state.error}
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <label htmlFor="name" className="text-sm font-medium">
                         Name <span className="text-red-500">*</span>
@@ -126,7 +126,10 @@ export default function ContactPage() {
 
                   <div className="space-y-1.5">
                     <label htmlFor="phone" className="text-sm font-medium">
-                      Phone <span className="text-[var(--color-muted-foreground)] font-normal">(optional)</span>
+                      Phone{" "}
+                      <span className="font-normal text-[var(--color-muted-foreground)]">
+                        (optional)
+                      </span>
                     </label>
                     <Input
                       id="phone"
@@ -147,7 +150,7 @@ export default function ContactPage() {
                       id="projectType"
                       name="projectType"
                       required
-                      className="flex h-9 w-full rounded-md border border-[var(--color-input)] bg-[var(--color-background)] px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-ring)] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-9 w-full rounded-md border border-[var(--color-input)] bg-[var(--color-background)] px-3 py-1 text-sm shadow-sm transition-colors focus-visible:ring-1 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="">Select a project type…</option>
                       <option value="residential-remodel">
